@@ -17,9 +17,11 @@
   </head>
   <body>
     <ul id="messages"></ul>
+    <p id="location"></p>
     <form id="form" action="">
-      <input id="input" autocomplete="off" /><button>Send</button>
+      <input id="input" autocomplete="off" /><button>Send test</button>
     </form>
+    <button onclick="getLocation()">Location</button>
     <script src="/socket.io/socket.io.js"></script>
 
     <script>
@@ -36,8 +38,29 @@
           input.value = '';
         }
       });
+      var location = document.getElementById("location");\
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          location.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+
+      function showPosition(position) {
+        location.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+      }
 
       socket.on('chat message', function(msg) {
+        var item = document.createElement('li');
+        item.textContent = msg;
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+
+      socket.on('check location', function(msg) {
         var item = document.createElement('li');
         item.textContent = msg;
         messages.appendChild(item);
