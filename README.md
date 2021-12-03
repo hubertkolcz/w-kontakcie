@@ -20,13 +20,13 @@ Sposób działania:
 
 1. Synchronizacja
    - Aplikacja wymaga zarejestrowania się zarówno rodzica, jak i dziecka
-   - Dziecko paruje się z rodzicem poprzez zeskanowanie kodu QR (na kształt integracji telefonu z komputer w WhatsApp)
+   - Dziecko paruje się z rodzicem poprzez zeskanowanie kodu QR (na kształt integracji telefonu z komputerem w aplikacji WhatsApp)
    - Aplikacja wymaga włączonej lokalizacji i internetu po stronie dziecka, w czasie gdy przechodzi z/do szkoły
-- Aplikacja automatycznie sprawdza lokalizację dziecka w ustalonych godzinach, 
+- Aplikacja automatycznie sprawdza lokalizację dziecka w ustalonych przedziałach czasowych, 
 np. od 8:00 do 8:45
   - Jeśli dziecko dotrze na wskazane w aplikacje miejsce (z początku dwie podstawowe: dom i szkoła), do rodzica zostaje przesłany komunikat.
   - Jeśli dziecko nie dotrze na czas
-- Aplikacja sprawdza, czy dziecko dotarło do szkoły. Jeśli nie, wysyła powiadomienie do rodzica
+- Aplikacja sprawdza, czy dziecko dotarło do szkoły. Jeśli nie, wysyła powiadomienie do rodzica zawierające równiez ostatnią znana lokalizację dziecka.
 
 Integracje:
 - Jakość powietrza (Airly) https://developer.airly.org/pl/docs
@@ -43,4 +43,6 @@ W przyszłości:
 - Rekomendacja (publiczny środek transportu/hulajnoga/rower/piechota) na podstawie:
   - jakości powietrza
   - korków
-  - 
+ 
+![ARCH](https://user-images.githubusercontent.com/46202356/144686565-7cefa8d0-f4a3-494a-8b45-5aef87e5e34f.jpg)
+![PU](https://user-images.githubusercontent.com/46202356/144686594-9c11442f-5640-4519-8f42-7c7e51cca05d.jpg)
