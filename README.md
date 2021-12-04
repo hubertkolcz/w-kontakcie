@@ -68,4 +68,7 @@ Architekturę systemu prezentują zdjęcia znajdujące się na dole dokumentu.
      - poziomu hałasu
 
 ![ARCH](https://user-images.githubusercontent.com/46202356/144686565-7cefa8d0-f4a3-494a-8b45-5aef87e5e34f.jpg)
+
 ![PU](https://user-images.githubusercontent.com/46202356/144686594-9c11442f-5640-4519-8f42-7c7e51cca05d.jpg)
+
+Dokumentacja api: http://localhost:8080/swagger-ui.html#/
