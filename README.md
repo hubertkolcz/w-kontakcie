@@ -22,9 +22,16 @@ a zatem - różnych scenariuszy komunikatów i nagród.
 
 Docelowo, aplikacja mobilna będzie napisana w React Native.
 
+Tworzone API, które będzie udostępniać dane na temat istniejących we Wrocławiu placówek i wypadków w ich okolicach, 
+posłużą do ulepszenia rekomendacji dotyczących środku transportu.
 
+**Aktualne działanie:**
 
-Sposób działania:
+Aplikacja jest komunikatorem działającym w przeglądarce. W celu zasymulowania komunikacji rodzic-dziecko, należy odpalić aplikację w dwóch osobnych oknach.
+W folderze server znajduje się napoczęta logika dla pobierania danych pogodowych, lokalizacyjnych, dotyczących zanieszyszczenia powietrza oraz dostępnych w okolicy ekologicznych środków transportu.
+W folderze client znajduje się widok aplikacji.
+
+**Docelowy sposób działania:**
 
 1. Synchronizacja
    - Aplikacja wymaga zarejestrowania się zarówno rodzica, jak i dziecka
@@ -38,6 +45,8 @@ Sposób działania:
 3. Integracje:
    - Jakość powietrza (Airly) https://developer.airly.org/pl/docs
    - Hulajnogi (Tier/Hive/Bolt/...) https://github.com/ubahnverleih/WoBike
+   - Pogoda https://rapidapi.com/visual-crossing-corporation-visual-crossing-corporation-default/api/visual-crossing-weather/
+   - 
    - Trasa piesza (Google Maps) https://developers.google.com/maps/documentation/directions/overview
 4. Output
     - Kalkulator, ile zanieczyszczeń udało się uniknąć

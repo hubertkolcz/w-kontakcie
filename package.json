@@ -1,7 +1,6 @@
 {
-  "name": "socket-chat-example",
+  "name": "w-kontakcie",
   "version": "0.0.1",
-  "description": "my first socket.io app",
   "dependencies": {
     "airly": "^3.1.0",
     "express": "^4.17.1",
