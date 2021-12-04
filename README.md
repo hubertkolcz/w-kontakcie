@@ -25,13 +25,17 @@ Docelowo, aplikacja mobilna będzie napisana w React Native.
 Tworzone API, które będzie udostępniać dane na temat istniejących we Wrocławiu placówek i wypadków w ich okolicach, 
 posłużą do ulepszenia rekomendacji dotyczących środku transportu.
 
-**Aktualne działanie:**
+**Aktualna funkcjonalność:**
 
 Aplikacja jest komunikatorem działającym w przeglądarce. W celu zasymulowania komunikacji rodzic-dziecko, należy odpalić aplikację w dwóch osobnych oknach.
 W folderze server znajduje się napoczęta logika dla pobierania danych pogodowych, lokalizacyjnych, dotyczących zanieszyszczenia powietrza oraz dostępnych w okolicy ekologicznych środków transportu.
 W folderze client znajduje się widok aplikacji.
 
-**Docelowy sposób działania:**
+w celu uruchomienia aplikacji, należy zainstalować wymagane pakiety (npm install), a następnie uruchomić aplikację (npm start)
+
+**Docelowa funkcjonalność:**
+
+Architekturę systemu prezentują zdjęcia znajdujące się na dole dokumentu.
 
 1. Synchronizacja
    - Aplikacja wymaga zarejestrowania się zarówno rodzica, jak i dziecka
@@ -46,7 +50,7 @@ W folderze client znajduje się widok aplikacji.
    - Jakość powietrza (Airly) https://developer.airly.org/pl/docs
    - Hulajnogi (Tier/Hive/Bolt/...) https://github.com/ubahnverleih/WoBike
    - Pogoda https://rapidapi.com/visual-crossing-corporation-visual-crossing-corporation-default/api/visual-crossing-weather/
-   - 
+
    - Trasa piesza (Google Maps) https://developers.google.com/maps/documentation/directions/overview
 4. Output
     - Kalkulator, ile zanieczyszczeń udało się uniknąć
@@ -54,7 +58,7 @@ W folderze client znajduje się widok aplikacji.
     - Sprawdzenie, czy przy wybranej szkole zdażają się wypadki. 
    Jeśli tak, to jak często i czy szczególnie w analogicznym okresie 
    https://www.wroclaw.pl/portal/szkolna-ulica
-    - 
+   
 5. W przyszłości:
    - Automatyczne komunikaty, gdy dziecko np. przejdzie pierwszy 1km trasy (z 3km)
    - Komunikat o wybranym środku transportu (na podstawie prędkości poruszania się)
