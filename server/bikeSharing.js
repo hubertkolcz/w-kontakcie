@@ -1,3 +1,4 @@
+// by simonbs - https://gist.github.com/simonbs/f167b9cfa3c95fe4ab7cc08b2699b4b0
 // You must generate and insert your own API key for Google Maps + Directions JS SDK.
 // The script uses Google Maps to display the scooters on a map as well as the route to the nearest scooter. Follow the guide on the link below to obtain an API key.
 // https://developers.google.com/maps/documentation/javascript/get-api-key
