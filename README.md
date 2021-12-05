@@ -36,6 +36,8 @@ a następnie uruchomić aplikację (npm start) i wejść pod adres http://localh
 w dwóch osobnych oknach przeglądarki. Przyciski 'location', 'home location', 'school location'
 , 'nearest bike', 'weather' oraz 'air pollution' symulują mechanizmy, które będą działały w sposób automatyczny w aplikacji docelowej, tj. na podstawie danych pobranych dla tych parametrów następuje przekazanie informacji do rodzica o aktywności dziecka oraz rekomendacjach związanych z wyborem środka transportu.
 
+W folderze api znajduje się kod źródłowy dla api danych z Miasta.
+
 **Docelowa funkcjonalność:**
 
 Makiety przedstawiające aplikację w docelowej formie, znajdują się na dole dokumentu.
