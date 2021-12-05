@@ -5,66 +5,145 @@
     <style>
       body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
 
-      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
-      #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
-      #input:focus { outline: none; }
-      #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
+      #text-form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
+      #text-input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
+      #text-input:focus { outline: none; }
+      #text-form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
 
-      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #location-form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
+      #location-input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
+      #location-input:focus { outline: none; }
+      #location-form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
+
+      #messages { list-style-type: none; margin: 0; padding: 0; height: 50%; }
       #messages > li { padding: 0.5rem 1rem; }
       #messages > li:nth-child(odd) { background: #efefef; }
+
+      #locations { list-style-type: none; margin: 0; padding: 0; height: 50%; }
+      #locations > li { padding: 0.5rem 1rem; }
+      #locations > li:nth-child(odd) { background: #efefef; }
     </style>
   </head>
   <body>
     <ul id="messages"></ul>
-    <p id="location"></p>
-    <form id="form" action="">
-      <input id="input" autocomplete="off" /><button>Send test</button>
+    <ul id="locations"></ul>
+    <form id="text-form" action="">
+      <input id="text-input" autocomplete="off" /><button>Send test</button>
+    </form>
+    <form id="location-form" action="">
+      <input id="location-input" autocomplete="off" /><button>Send test</button>
     </form>
     <button onclick="getLocation()">Location</button>
+    <button onclick="homePosition()">Home location</button>
+    <button onclick="schoolPosition()">School location</button>
+    <button onclick="nearestBike()">Nearest bike</button>
+    <button onclick="weather()">Weather</button>
+    <button onclick="airPollution()">Air pollution</button>
+
     <script src="/socket.io/socket.io.js"></script>
 
     <script>
       var socket = io();
 
+      var locations = document.getElementById('locations');
       var messages = document.getElementById('messages');
-      var form = document.getElementById('form');
-      var input = document.getElementById('input');
-
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (input.value) {
-          socket.emit('chat message', input.value);
-          input.value = '';
-        }
-      });
-      var location = document.getElementById("location");
+      var locationForm = document.getElementById('location-form');
+      var locationInput = document.getElementById('location-input');
+      var msgForm = document.getElementById('text-form');
+      var msgInput = document.getElementById('text-input');
 
       function getLocation() {
         if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(showPosition);
+          navigator.geolocation.getCurrentPosition(currentPosition);
         } else {
-          location.innerHTML = "Geolocation is not supported by this browser.";
+          locations.innerHTML = "Geolocation is not supported by this browser.";
         }
       }
 
-      function showPosition(position) {
-        location.innerHTML = "Latitude: " + position.coords.latitude +
-                "<br>Longitude: " + position.coords.longitude;
+      function currentPosition(position) {
+        socket.emit('location', "Latitude: " + position.coords.latitude +
+                " Longitude: " + position.coords.longitude);
       }
+
+      function homePosition() {
+        socket.emit('homePosition', "Home position - Latitude: " + 51 +
+                "Longitude: " + 52);
+      }
+
+      function schoolPosition() {
+        socket.emit('schoolPosition', "School position - Latitude: " + 52 +
+                "Longitude: " + 53);
+      }
+
+      function nearestBike() {
+        socket.emit('bike', "Nearest bike - Latitude: " + 52 +
+                "Longitude: " + 52);
+      }
+
+      function weather() {
+        socket.emit('weather', '15C');
+      }
+      
+      function airPollution() {
+        socket.emit('airPollution', "25%");
+      }
+
+      msgForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (msgInput.value) {
+          socket.emit('chat message', msgInput.value);
+          msgInput.value = '';
+        }
+      });
+
+      locationForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (locationInput.value) {
+          socket.emit('location', locationInput.value);
+          locationInput.value = '';
+        }
+      });
 
       socket.on('chat message', function(msg) {
         var item = document.createElement('li');
         item.textContent = msg;
         messages.appendChild(item);
-        window.scrollTo(0, document.body.scrollHeight);
       });
 
-      socket.on('check location', function(msg) {
+      socket.on('location', function(msg) {
         var item = document.createElement('li');
         item.textContent = msg;
-        messages.appendChild(item);
-        window.scrollTo(0, document.body.scrollHeight);
+        locations.appendChild(item);
+      });
+
+      socket.on('homePosition', function(msg) {
+        var item = document.createElement('li');
+        item.textContent = msg;
+        locations.appendChild(item);
+      });
+
+      socket.on('schoolPosition', function(msg) {
+        var item = document.createElement('li');
+        item.textContent = msg;
+        locations.appendChild(item);
+      });
+
+      socket.on('bike', function(msg) {
+        var item = document.createElement('li');
+        item.textContent = msg;
+        locations.appendChild(item);
+      });
+
+      socket.on('weather', function(msg) {
+        var item = document.createElement('li');
+        item.textContent = msg;
+        locations.appendChild(item);
+      });
+
+      socket.on('airPollution', function(msg) {
+        var item = document.createElement('li');
+        item.textContent = msg;
+        locations.appendChild(item);
       });
     </script>
   </body>

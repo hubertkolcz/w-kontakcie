@@ -27,39 +27,43 @@ posłużą do ulepszenia rekomendacji dotyczących środku transportu.
 
 **Aktualna funkcjonalność:**
 
-Aplikacja jest komunikatorem działającym w przeglądarce. W celu zasymulowania komunikacji rodzic-dziecko, należy odpalić aplikację w dwóch osobnych oknach.
-W folderze server znajduje się napoczęta logika dla pobierania danych pogodowych, lokalizacyjnych, dotyczących zanieszyszczenia powietrza oraz dostępnych w okolicy ekologicznych środków transportu.
+Aplikacja jest komunikatorem działającym w przeglądarce. W celu symulowania komunikacji rodzic-dziecko należy odpalić aplikację w dwóch osobnych oknach.
+W folderze server znajduje się napoczęta logika dla pobierania danych pogodowych, lokalizacyjnych, dotyczących zanieczyszczenia powietrza oraz dostępnych w okolicy ekologicznych środków transportu.
 W folderze client znajduje się widok aplikacji.
 
-w celu uruchomienia aplikacji, należy zainstalować wymagane pakiety (npm install), a następnie uruchomić aplikację (npm start)
+W celu uruchomienia aplikacji należy zainstalować wymagane pakiety (npm install), 
+a następnie uruchomić aplikację (npm start) i wejść pod adres http://localhost:3000/
+w dwóch osobnych oknach przeglądarki. Przyciski 'location', 'home location', 'school location'
+, 'nearest bike', 'weather' oraz 'air pollution' symulują mechanizmy, które będą działały w sposób automatyczny w aplikacji docelowej, tj. na podstawie danych pobranych dla tych parametrów następuje przekazanie informacji do rodzica o aktywności dziecka oraz rekomendacjach związanych z wyborem środka transportu.
 
 **Docelowa funkcjonalność:**
 
+Makiety przedstawiające aplikację w docelowej formie, znajdują się na dole dokumentu.
 Architekturę systemu prezentują zdjęcia znajdujące się na dole dokumentu.
 
 1. Synchronizacja
    - Aplikacja wymaga zarejestrowania się zarówno rodzica, jak i dziecka
    - Dziecko paruje się z rodzicem poprzez zeskanowanie kodu QR (na kształt integracji telefonu z komputer w WhatsApp)
    - Aplikacja wymaga włączonej lokalizacji i internetu po stronie dziecka, w czasie gdy przechodzi z/do szkoły
-2. Background. Aplikacja sprawdza, czy dziecko dotarło do szkoły. 
+2. Background - aplikacja sprawdza, czy dziecko dotarło do szkoły.
    - Aplikacja automatycznie sprawdza lokalizację dziecka w ustalonych godzinach, 
    np. od 8:00 do 8:45
-     - Jeśli dziecko dotrze na wskazane w aplikacje miejsce (z początku dwie podstawowe: dom i szkoła), do rodzica zostaje przesłany komunikat.
-     - Jeśli dziecko nie dotrze na czas, rodzic otrzyma komunikat, a dziecko - punkty ujemne/zapytanie
-3. Integracje:
+   - Jeśli dziecko dotrze na wskazane w aplikacje miejsce (z początku dwie podstawowe: dom i szkoła), do rodzica zostaje przesłany komunikat.
+   - Jeśli dziecko nie dotrze na czas, rodzic otrzyma komunikat, a dziecko - punkty ujemne/zapytanie
+4. Integracje:
    - Jakość powietrza (Airly) https://developer.airly.org/pl/docs
    - Hulajnogi (Tier/Hive/Bolt/...) https://github.com/ubahnverleih/WoBike
    - Pogoda https://rapidapi.com/visual-crossing-corporation-visual-crossing-corporation-default/api/visual-crossing-weather/
 
    - Trasa piesza (Google Maps) https://developers.google.com/maps/documentation/directions/overview
-4. Output
+5. Output
     - Kalkulator, ile zanieczyszczeń udało się uniknąć
     - Poziomy/odznaczenia za działalność zgodną z rekomendacjami ekologicznymi
     - Sprawdzenie, czy przy wybranej szkole zdażają się wypadki. 
    Jeśli tak, to jak często i czy szczególnie w analogicznym okresie 
    https://www.wroclaw.pl/portal/szkolna-ulica
    
-5. W przyszłości:
+6. W przyszłości:
    - Automatyczne komunikaty, gdy dziecko np. przejdzie pierwszy 1km trasy (z 3km)
    - Komunikat o wybranym środku transportu (na podstawie prędkości poruszania się)
    - Rekomendacja (publiczny środek transportu/hulajnoga/rower/piechota) na podstawie:
@@ -69,3 +73,11 @@ Architekturę systemu prezentują zdjęcia znajdujące się na dole dokumentu.
 
 ![ARCH](https://user-images.githubusercontent.com/46202356/144686565-7cefa8d0-f4a3-494a-8b45-5aef87e5e34f.jpg)
 ![PU](https://user-images.githubusercontent.com/46202356/144686594-9c11442f-5640-4519-8f42-7c7e51cca05d.jpg)
+
+![img.png](img.png)
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
+![img_4.png](img_4.png)
+![img_5.png](img_5.png)
+![img_6.png](img_6.png)
