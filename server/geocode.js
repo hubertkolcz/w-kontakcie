@@ -1,9 +1,10 @@
+// Requires the GOOGLE_API_KEY environment variable (a Google Geocoding API key).
 const request = require('request');
 
 let geocodeAddress = (address, callback) => {
     let encodedAddress = encodeURIComponent(address);
     request({
-        url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyBDz017lqNk-v61NsNfIgETXxjK0v8BrWQ`,
+        url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${process.env.GOOGLE_API_KEY}`,
         json: true
     }, (error, response, body) => {
         if (error) {
